@@ -4,7 +4,7 @@ Plugin Name: Twi.im URL Shortener
 Plugin URI: http://twi.im
 Description: Shorten URLs for all your posts automatically with the twi.im plugin
 Author: Twi.im
-Version: 0.5
+Version: 0.5.1
 Author URI: http://twi.im/contact.php
 */
 
@@ -53,7 +53,7 @@ function twiim_display($content){
 		'<div id="twiim-box">
 		<div id="twiim-inner">
 <a href="http://twi.im">
-			<img src="'.get_site_url().'/wp-content/plugins/twiim/img/logo.png" width="70px" id="twiim-img">
+			<img src="'.get_site_url().'/wp-content/plugins/twiim-url-shortener/img/logo.png" width="70px" id="twiim-img">
 </a>
 
 			<input type="text" value="'.$twiim_link.'" name="theurl" size="35" readonly="readonly" onclick="select();">
