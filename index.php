@@ -215,7 +215,7 @@ function twiim_settings(){
 
 		<!-- <h3>Your Twi.im Hash</h3>
 
-		Hash: <input name="twiim_hash" type="text" size="30" id="twiim_hash" value="'./* $options['hash'] */ .'"/> <a href="#" id="more-link" onclick="document.getElementById(\'more-info\').style.display = \'block\'; document.getElementById(\'more-link\').style.display = \'none\';">(More Info)</a><br /> -->
+		Hash: <input name="twiim_hash" type="text" size="30" id="twiim_hash" value=""/> <a href="#" id="more-link" onclick="document.getElementById(\'more-info\').style.display = \'block\'; document.getElementById(\'more-link\').style.display = \'none\';">(More Info)</a><br /> -->
 
 		
 
