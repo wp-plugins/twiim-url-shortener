@@ -228,7 +228,7 @@ function twiim_settings(){
 		<h3>Custom CSS</h3>
 			<a href="#" id="css-link" onclick="document.getElementById(\'css-info\').style.display = \'block\'; document.getElementById(\'css-link\').style.display = \'none\';">More Info</a>
 			
-			<textarea rows="7" cols="15">
+			<textarea rows="9" cols="50">
 				'.$options['twiim_css'].'
 			</textarea>
 		<br />
