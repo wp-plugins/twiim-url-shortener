@@ -55,7 +55,8 @@ function twiim_display($content){
 		'<div id="twiim-box">
 		<div id="twiim-inner">
 <a href="http://twi.im">
-			<img src="'.get_site_url().'/wp-content/plugins/twiim-url-shortener/img/logo.png" width="70px" id="twiim-img">
+			<!-- <img src=".get_site_url()./wp-content/plugins/twiim-url-shortener/img/logo.png" width="70px" id="twiim-img"> -->
+			<img src="http://twi.im/view/logo4.png" width="70px" id="twiim-img">
 </a>
 
 			<input type="text" value="'.$twiim_link.'" name="theurl" size="35" readonly="readonly" onclick="select();">
