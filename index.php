@@ -4,7 +4,7 @@ Plugin Name: Twi.im URL Shortener
 Plugin URI: http://twi.im
 Description: Shorten URLs for all your posts automatically with the twi.im plugin
 Author: Twi.im
-Version: 0.6
+Version: 0.6.1
 Author URI: http://twi.im/contact.php
 */
 
