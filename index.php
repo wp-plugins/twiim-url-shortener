@@ -4,7 +4,7 @@ Plugin Name: Twi.im URL Shortener
 Plugin URI: http://twi.im
 Description: Shorten URLs for all your posts automatically with the twi.im plugin
 Author: Twi.im
-Version: 0.5.1
+Version: 0.6
 Author URI: http://twi.im/contact.php
 */
 
@@ -25,6 +25,8 @@ function twiim_display($content){
 	$options['twiim_pages'] = get_option('twiim_pages');
 
 	$options['twiim_homepage'] = get_option('twiim_homepage');
+	
+	$options['twiim_css'] = get_option('twiim_css');
 
 	$link = get_permalink();
 
@@ -63,25 +65,26 @@ function twiim_display($content){
 		
 
 	// this is where we'll style our box	
+	if(isset($options['twiim_css']) && $options['twiim_css'] != ''){
+		$twiim .= '<style type=\'text/css\'>'.$options['twiim_css'].'</style>';
+	} else {
+		$twiim .= '<style type=\'text/css\'>
 
-	$twiim .= 	'<style type=\'text/css\'>
-
-	#twiim-box {
-		width: 97%;
-		border-top: 1px solid #888;
-		margin: 0 auto;
+			#twiim-box {
+				width: 97%;
+				border-top: 1px solid #888;
+				margin: 0 auto;
+			}
+			#twiim-inner {
+				width: 350px;
+				margin: 0 auto;	
+				margin-top: 10px;
+			}
+			#twiim-img {
+				vertical-align: -25%;
+			}
+		</style>';
 	}
-	#twiim-inner {
-		width: 350px;
-		margin: 0 auto;	
-		margin-top: 10px;
-	}
-	#twiim-img {
-		vertical-align: -25%;
-	}
-
-	</style>';	
-
 		
 
 			// Display results
@@ -89,15 +92,15 @@ function twiim_display($content){
 			if($options['twiim_display'] == 'bottom'){
 
 				return $content . $twiim;
-
+				exit();
 			} elseif($options['twiim_display'] == 'top'){
 
 				return $twiim . $content;
-
+				exit();
 			} else {
 
 				return $content;
-
+				exit();
 			}
 
 }
@@ -108,9 +111,7 @@ function twiim_display($content){
 
 // Create Admin menu Settings
 
-function twiim_settings()
-
-{
+function twiim_settings(){
 
 	// this is where we'll display our admin options
 
@@ -153,6 +154,8 @@ function twiim_settings()
 	$options['twiim_homepage'] = get_option('twiim_homepage');
 
 	$options['display'] = get_option('twiim_display');
+	
+	$options['twiim_css'] = get_option('twiim_css');
 
 	
 
@@ -210,9 +213,9 @@ function twiim_settings()
 
 				
 
-		<h3>Your Twi.im Hash</h3>
+		<!-- <h3>Your Twi.im Hash</h3>
 
-		Hash: <input name="twiim_hash" type="text" size="30" id="twiim_hash" value="'.$options['hash'].'"/> <a href="#" id="more-link" onclick="document.getElementById(\'more-info\').style.display = \'block\'; document.getElementById(\'more-link\').style.display = \'none\';">(More Info)</a><br />
+		Hash: <input name="twiim_hash" type="text" size="30" id="twiim_hash" value="'./* $options['hash'] */ .'"/> <a href="#" id="more-link" onclick="document.getElementById(\'more-info\').style.display = \'block\'; document.getElementById(\'more-link\').style.display = \'none\';">(More Info)</a><br /> -->
 
 		
 
@@ -222,7 +225,38 @@ function twiim_settings()
 
 		</div>
 
+		<h3>Custom CSS</h3>
+			<a href="#" id="css-link" onclick="document.getElementById(\'css-info\').style.display = \'block\'; document.getElementById(\'css-link\').style.display = \'none\';">More Info</a>
+			
+			<textarea rows="7" cols="15">
+				'.$options['twiim_css'].'
+			</textarea>
+		<br />
 		
+		<div style="display: none;" id="css-info">
+			<p>
+				<em>This is the default CSS</em>
+				
+				<blockquote>
+					#twiim-box {
+						width: 97%;
+						border-top: 1px solid #888;
+						margin: 0 auto;
+					}
+					
+					#twiim-inner {
+						width: 350px;
+						margin: 0 auto;	
+						margin-top: 10px;
+					}
+					
+					#twiim-img {
+						vertical-align: -25%;
+					}
+				</blockquote>
+			</p>
+		</div>
+
 
 		<br />
 
@@ -232,7 +266,7 @@ function twiim_settings()
 
 		
 
-		<h3>Recreate Twi.im\'s</h3>
+		<!-- <h3>Recreate Twi.im\'s</h3>
 
 		<form method="post" action="">
 
@@ -240,7 +274,7 @@ function twiim_settings()
 
 			<input type="submit" class="button-primary" value="Create Twi.im\'s for all URLs">
 
-		</form>
+		</form> -->
 
 		
 
