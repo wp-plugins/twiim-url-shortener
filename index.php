@@ -124,6 +124,8 @@ function twiim_settings(){
 		update_option('twiim_homepage', $_POST['twiim_homepage']);
 
 		update_option('twiim_display', $_POST['twiim_display']);
+		
+		update_option('twiim_css', $_POST['twiim_css']);;
 
 
 
@@ -228,9 +230,7 @@ function twiim_settings(){
 		<h3>Custom CSS</h3>
 			<a href="#" id="css-link" onclick="document.getElementById(\'css-info\').style.display = \'block\'; document.getElementById(\'css-link\').style.display = \'none\';">More Info</a>
 		<br />	
-			<textarea rows="9" cols="50">
-				'.$options['twiim_css'].'
-			</textarea>
+			<textarea rows="9" cols="50" name="twiim_css">'.$options['twiim_css'].'</textarea>
 		<br />
 		
 		<div style="display: none;" id="css-info">
